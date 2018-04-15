@@ -1,0 +1,40 @@
+{% extends 'zombie/_base.html' %}
+{% block 'content' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 p-3">
+      <div class="card">
+        <img class="card-img-top" src="/static/images/mat.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mat &amp; dryck</h5>
+          <p class="card-text">Vad har du ätit under dagen och hur inflyttar det din bilans
+            <br> </p>
+          <a href="{% url 'add-food' %}" class="btn btn-primary btn-block">Lägg till mat &amp; dryck</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 p-3">
+      <div class="card">
+        <img class="card-img-top" src="/static/images/transport.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Transport</h5>
+          <p class="card-text">Olika transportalternativ samt möjlighet att ladda upp platsinfo</p>
+          <a href="#" class="btn btn-primary btn-block disabled">Lägg till transport</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 p-3">
+      <div class="card">
+        <img class="card-img-top" src="/static/images/el.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Energi</h5>
+          <p class="card-text">Hur ser ditt energiavtryck ut - har du solceller?</p>
+          <a href="#" class="btn btn-primary btn-block disabled">Lägg till energi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

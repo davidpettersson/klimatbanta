@@ -1,0 +1,84 @@
+{% extends 'zombie/_base.html' %}
+{% load gravatar %}
+{% load static %}
+{% block 'title' %}Om mig{% endblock %}
+{% block 'content' %}
+
+<div class="row">
+    <div class="col-md">
+        <p class="text-center">
+        <img class="rounded-circle" src="{% gravatar_url user.email 512 %}"  style="width: 50%;">
+        <br>
+        <h1 class="text-center">{{ user.first_name }}</h1>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md">
+        <h2>Märken</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="{% static '/images/badge_bikelover.png' %}">
+                <div class="card-body">
+                    <h5 class="card-title">Bike Lover</h5>
+                    <p class="card-text">Quia adipisci est doloremque neque ea est. Dolores et quis omnis nulla.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static '/images/badge_climatehero.png' %}">
+                <div class="card-body">
+                    <h5 class="card-title">Climate Hero</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+    <div class="col-sm">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="{% static '/images/badge_familybiker.png' %}">
+                <div class="card-body">
+                    <h5 class="card-title">Family Biker</h5>
+                    <p class="card-text">Sunt sed quam voluptatem sequi consequatur quaerat dolor. Rerum laudantium ipsam aut dolorem fugit.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static '/images/badge_solcellshipster.png' %}">
+                <div class="card-body">
+                    <h5 class="card-title">Solcellshipster</h5>
+                    <p class="card-text">Quia impedit et quis atque rerum dolor eveniet occaecati. Omnis ut rem nisi ea voluptatem. Cupiditate unde sequi placeat mollitia iusto. Labore consequatur quia excepturi rem facere ducimus ut ut.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+    <div class="col-sm">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="{% static '/images/badge_veggolover.png' %}">
+                <div class="card-body">
+                    <h5 class="card-title">Veggo Lover</h5>
+                    <p class="card-text">Aut molestias non voluptas porro fugit. Eaque perferendis est veniam et quaerat.</p>
+                </div>
+            </div>
+            <div class="card">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

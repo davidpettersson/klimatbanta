@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+{% load gravatar %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/theme.css" type="text/css">
+    <link rel="stylesheet" href="/static/klimatbanta.css" type="text/css">
+    <title>{% block 'title' %}Klimatbanta{% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-md bg-primary navbar-dark">
+        <div class="container">
+            <!-- brand -->
+            <span class="navbar-brand" href="{% url 'timeline' %}">
+                <i class="fa d-inline fa-lg fa-cloud"></i>
+                <b>&nbsp;Klimatbanta</b>
+            </span>
+            <!-- toggler -->
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar2SupportedContent">
+                <!-- visible if authenticated -->
+                <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'timeline' %}">Tidslinje</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'my-timeline' %}">Mina aktiviteter</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'compare' %}">Jämför</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add/select"><i class="fa d-inline fa-2x fa-plus-circle"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="ml-2" href="{% url 'profile' %}"><img class="rounded-circle" src="{% gravatar_url user.email 48 %}"></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{% url 'registration_register' %}">
+                            <i class="fa d-inline fa-lg fa-plus-circle"></i>&nbsp;registrera</a>
+                        <a class="btn navbar-btn ml-2 text-white btn-secondary" href="{% url 'auth_login' %}">
+                            <i class="fa d-inline fa-lg fa-user-circle-o"></i>&nbsp;logga in</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+    {% block 'content' %}
+    {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+</body>
+
+</html>
+

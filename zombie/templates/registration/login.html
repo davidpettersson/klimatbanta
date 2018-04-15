@@ -1,0 +1,16 @@
+{% extends 'zombie/_base.html' %}
+{% block title %}Logga in{% endblock %}
+
+{% block 'content' %}
+<div class="row">
+    <h1>Logga in</h1>
+</div>
+<div class="row">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'zombie/_base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <h2>Jämförelse</h2>
+            <p>Jämförelse mellan Britta och David.</p>
+            <img src="{% static '/images/chart.png' %}" style="width: 100%;">
+            <p><small>Grön streckad linje är vårt klimatmål för 2050, medan röd streckad linje är nuvarande genomsnittlig utsläppsnivå.</small></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    var barChartData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'Dataset 1',
+            backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.red,
+            borderWidth: 1,
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+            ]
+        }, {
+            label: 'Dataset 2',
+            backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+            borderColor: window.chartColors.blue,
+            borderWidth: 1,
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+            ]
+        }];
+
+    window.onload = function() {
+        var ctx = document.getElementById('canvas').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Jämför'
+                }
+            }
+        });
+</script>
+{% endblock %}
+

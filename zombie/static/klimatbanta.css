@@ -1,0 +1,15 @@
+.helptext {
+    display: none;
+}
+
+body {
+    margin-top: 64pt;
+
+}
+
+.klimatbanta-overlay {
+    background: linear-gradient(
+            rgba(20, 20, 20, 0.1),
+            rgba(100, 100, 100, 0.0));
+    color: white;
+}

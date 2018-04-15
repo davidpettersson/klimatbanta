@@ -1,0 +1,36 @@
+{% extends 'zombie/_base.html' %}
+{% block 'content' %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Lägg till mat &amp; dryck</h1>
+    </div>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md">
+            <p><label for="id_image" class="lead">Ladda upp bild</label><br/><input type="file" name="image" required id="id_image" /></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md">
+            <p><label for="id_image" class="lead">Typ av maträtt</label><br/>
+                <select name="food_type" maxlength="1" id="id_food_type">
+                    <option value="M">kött</option>
+
+                    <option value="F">fisk</option>
+
+                    <option value="V">vegetariskt</option>
+
+                </select>
+            </p>
+        </div>
+    </div>
+
+    <input type="submit" value="Submit" />
+
+</form>
+{% endblock %}
